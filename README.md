@@ -20,7 +20,7 @@ The R files at the root corresponds to the different experiments carried in the 
 - AsieLS.R corresponds to the code for the study of the Asian dataset
 - EuropeBNZLS.R corresponds to the code for the study of the European and British-New Zealand languages.
 
-It is sufficient to launch these files to reproduce the results. We recommend using a large cluster as the running time is about a day with 40 cores, for this it is required to check the last lines of the code to change the number of cores used.
+To reproduce the results, these R scripts needs to be started. We recommend using a large cluster as the running time is about a day with 40 cores, for this it is required to check the last lines of the code to change the number of cores used. The results can then be interpreted directly in R (for example for the plots of the parameters) or using additional softwares (requiring to save the tree files, that can be found in Results).
 
 # Using the code
 
