@@ -8,13 +8,19 @@ This folder contains all the functions needed to run the analysis. The code migh
 
 # "datasets"
 
-Contains the datasets used for the experiments presented in the papers.
+Contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word, the first columns describe the meanings and language they belong to.
+
+# "Results"
+
+Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), and the resulting consensus trees (EBNZ_1_annote.nex, EBNZ_2_annote.nex and Asia_annote.nex). We did not include the full output of the SMC as the weight would be too important.
 
 # Reproducing the results of the papers
 
 The R files at the root corresponds to the different experiments carried in the papers:
 - AsieLS.R corresponds to the code for the study of the Asian dataset
 - EuropeBNZLS.R corresponds to the code for the study of the European and British-New Zealand languages.
+
+It is sufficient to launch these files to reproduce the results. We recommend using a large cluster as the running time is about a day with 40 cores, for this it is required to check the last lines of the code to change the number of cores used.
 
 # Using the code
 
