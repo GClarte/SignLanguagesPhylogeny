@@ -24,5 +24,5 @@ To reproduce the results, these R scripts needs to be started. We recommend usin
 
 # Using the code
 
-Everything is described in the GiveATry.R file, we did not include the data importation part, as this can be quite dependent on the datasets.
-GiveAPlot.R plots all the parameters, and produces the .nex files needed for following studies, plots will require additional softwares to build the consensus tree, annotate it, and plot the densitrees, but the .nex file are quite frequently used.
+The whole process: specification of the dataset, setting of the parameters, launching of the SMC, description of the output, is described in the GiveATry.R file. 
+To get the different plots, please refer to the GiveAPlot.R file. It plots all the parameters and produces the .nex files needed for following phylogenetical analysis, plots will require additional softwares to build the consensus tree, annotate it, and plot the densitrees.
