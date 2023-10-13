@@ -2,6 +2,8 @@
 
 This is the implementation of the numerical methods described in the paper "Computational phylogenetics reveal histories of sign languages". To reproduce the results of the paper see below, to run your own analysis, the best idea is to read the GiveATry.R file, that contains enough comments to describe each parameter choice and data information needed.
 
+The code was working on R 4.2.1, the only library used is "parallel" to run on parallel CPU.
+
 # fonctions
 
 This folder contains all the functions needed to run the analysis. The code might be difficult to read, but it is not needed to open the folder to run the experiments. For additional changes to the code, you might want to contact Grégoire Clarté wherever he is at the moment where you are reading this file. A french dictionary might be useful to understand the name of the variables.
