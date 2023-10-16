@@ -4,13 +4,17 @@ This is the implementation of the numerical methods described in the paper "Comp
 
 The code was working on R 4.2.1, the only library used is "parallel" to run on parallel CPU.
 
-# fonctions
+# functions
 
 This folder contains all the functions needed to run the analysis. The code might be difficult to read, but it is not needed to open the folder to run the experiments. For additional changes to the code, you might want to contact Grégoire Clarté wherever he is at the moment where you are reading this file. A french dictionary might be useful to understand the name of the variables.
 
 # datasets
 
 Contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word, the first columns describe the meanings and language they belong to. We also include an excel file containing exactly the same data.
+
+# videos
+
+Contains examples of the original videos which have been treated to produce the dataset presented in datasets, the folder also contains a video explaining the encoding process.
 
 # Results
 
