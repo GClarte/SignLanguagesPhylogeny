@@ -1,26 +1,26 @@
-## Phylogenies with Matricial Datasets
+# Phylogenies with Matricial Datasets
 
 This is the implementation of the numerical methods described in the paper "Computational phylogenetics reveal histories of sign languages". To reproduce the results of the paper see below, to run your own analysis, the best idea is to read the GiveATry.R file, that contains enough comments to describe each parameter choice and data information needed.
 
 The code was working on R 4.2.1, the only library used is "parallel" to run on parallel CPU.
 
-# functions
+## functions
 
 This folder contains all the functions needed to run the analysis. The code might be difficult to read, but it is not needed to open the folder to run the experiments. For additional changes to the code, you might want to contact Grégoire Clarté wherever he is at the moment where you are reading this file. A french dictionary might be useful to understand the name of the variables.
 
-# datasets
+## datasets
 
 Contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word, the first columns describe the meanings and language they belong to. We also include an excel file containing exactly the same data.
 
-# videos
+## videos
 
 Contains examples of the original videos which have been treated to produce the dataset presented in datasets, the folder also contains a video explaining the encoding process.
 
-# Results
+## Results
 
 Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), and the resulting consensus trees (EBNZ_1_annote.nex, EBNZ_2_annote.nex and Asia_annote.nex). We did not include the full output of the SMC as the weight would be too important.
 
-# Reproducing the results of the papers
+## Reproducing the results of the papers
 
 The R files at the root corresponds to the different experiments carried in the papers:
 - AsieLS.R corresponds to the code for the study of the Asian dataset
@@ -31,7 +31,7 @@ To reproduce the results, these R scripts needs to be started. We recommend usin
 
 Pay attention in the R files to the parameters used, especially the prior information on ages (written "Contraintesages"), the set of characters used ("qui") in the study, and the language included ("quelleslangues").
 
-# Using the code
+## Using the code
 
 The whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output, is described in the tutorial file GiveATry.R file. 
 To get the different plots, please refer to the GiveAPlot.R file. It plots all the parameters and produces the .nex files needed for subsequent phylogenetical analysis, plots of the phylogenies will require additional softwares to build the consensus tree, annotate it, and plot the densitrees (we used
