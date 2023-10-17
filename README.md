@@ -6,7 +6,7 @@ The code was working on R 4.2.1, the only library used is "parallel" to run on p
 
 ## functions
 
-This folder contains all the functions needed to run the analysis. The code might be difficult to read, but it is not needed to open the folder to run the experiments. For additional changes to the code, you might want to contact Grégoire Clarté wherever he is at the moment where you are reading this file. A french dictionary might be useful to understand the name of the variables.
+This folder contains all the core functions needed to run the analysis. It is not needed to open this file to replicate the experiments on this datasets or make small changes (values of parameters, use of another dataset, etc.), but for more substantial changes of the model it can be needed. In case of need, you can contact Grégoire Clarté.
 
 ## datasets
 
