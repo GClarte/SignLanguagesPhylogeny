@@ -35,3 +35,7 @@ Pay attention in the R files to the parameters used, especially the prior inform
 
 The whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output, is described in the tutorial file GiveATry.R file. 
 To get the different plots, please refer to the GiveAPlot.R file. It plots all the parameters and produces the .nex files needed for subsequent phylogenetical analysis, plots of the phylogenies will require additional softwares to build the consensus tree, annotate it, and plot the densitrees (we used
+
+## Thanks
+
+The implementation of the dirichlet distribution comes from the gtools package.
