@@ -1,21 +1,23 @@
-#you only need the parallel package, and all the functions that we wrote
 
-#if you have a question send me an e-mail at: clarte $at$ ceremade $dot$ dauphiine $dot$ fr or at clarteg $at$ gmail $dot$ com
+# For any questions, please e-mail clarte $at$ ceremade $dot$ dauphiine $dot$ fr or clarteg $at$ gmail $dot$ com
 
 
-source("fonctions/fctauxini.R")
-source("fonctions/gibbsparam.R")
-source("fonctions/gibbstps.R")
-source("fonctions/gibbstranfter.R")
-source("fonctions/initialisation.R")
-source("fonctions/lkldpruningbis.R")
-source("fonctions/simudata.R")
-source("fonctions/Gibbspartieldata.R")
-source("fonctions/gibbsrho.R")
-source("fonctions/modiftopo.R")
-source("fonctions/SMCforet.R")
-source("fonctions/SMCforet_aux.R")
-source("fonctions/testclades.R")
+# This file gives a template to adapt the Phylogenies from Matrices methodology to other data sets.
+# To run it, several objects need to specified. They are listed with the TOFILL keyword.
+
+source("functions/fctauxini.R")
+source("functions/gibbsparam.R")
+source("functions/gibbstps.R")
+source("functions/gibbstranfter.R")
+source("functions/initialisation.R")
+source("functions/lkldpruningbis.R")
+source("functions/simudata.R")
+source("functions/Gibbspartieldata.R")
+source("functions/gibbsrho.R")
+source("functions/modiftopo.R")
+source("functions/SMCforet.R")
+source("functions/SMCforet_aux.R")
+source("functions/testclades.R")
 
 library("parallel")
 
@@ -25,24 +27,31 @@ library("parallel")
 
 #The dataset comes in the form of a CSV file, as presented in example_data.csv
 
+# TOFILL
 #vector of name of the languages, in the order of the dataset, 
 #it also gives the name of the leaves of the tree, the number in the constraints
 quelleslangues = 
 
 nlangues=length(quelleslangues)
 
+# TOFILL
+# vector of the characters to include in the study, listed as column numbers in the data file
+qui = 
+
+# TOFILL
 #vector of the indexes of the meanings
-quelmeanings=1:100
+quelmeanings=
 
 #number of characters in the dataset
 nch=length(qui)
 
+# TOFILL
 #The dataset must be transformed in order to have a list of length nch
 #each element of the list is a matrix with nlanguages columns and a row for each meaning
 #NA are possible in any of the matrices
 Dat
 
-#this function creates all the pairwise transformations possible. This is not optimal and we don't care.
+#this function creates all the pairwise transformations possible. This code does not need to be optimized.
 toutestransf=function(n){
   A=matrix(nrow=2,ncol=0)
   for (i in 1:n){
@@ -56,6 +65,7 @@ toutestransf=function(n){
 }
 
 
+# TOFILL
 #etats is a vector of size nch containing the number of values possible for each character
 etats
 

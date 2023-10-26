@@ -19,11 +19,12 @@ source("functions/testclades.R")
 library("parallel")
 
 
-
+# choose characters to be included
 qui=c(28,29,6,10)
 #qui=c(7,28,20,10)
 #qui=c(7,28,20,6)
-#european SL
+
+# Choose languages to be included
 quelleslangues=c("Lithuanian","Czech","German","French","Russian","AmericanEnglish","Italian","Austrian","Ukrainian","Spanish","Polish",
                  "English","NewZealand","Estonian","Latvian","AllMissing")
 
@@ -44,8 +45,7 @@ for (i in 1:100){
   }
 }
 
-quelmeanings=k
-
+# choose meanings to include
 quelmeanings=1:100
 
 nch=length(qui)
@@ -171,12 +171,11 @@ convcontraintes <- function(ages){
 }
 
 #Contraintesages=convcontraintes(ages)
-#Contraintesages=list(list(c(4,6),c(158,183)))
-#Contraintesages=list(list(c(4,7),c(181,216)))
-#Contraintesages=list(list(c(12,13),c(107,132)))
-#Contraintesages=list(list(c(12,13),c(97,122)))
+
+
+# List of age constraints
 Contraintesages=list(list(c(4,6),c(158,183)),list(c(4,7),c(181,216)),list(c(12,13),c(107,132)))
-#Contraintesages=list(list(c(4,6),c(158,183)),list(c(4,7),c(181,216)),list(c(12,13),c(97,122)))
+
 
 Prior=list(Prirho=Prirho,
            hyperpbini=hyperpbini,

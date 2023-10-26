@@ -1,76 +1,30 @@
 # Execute this R script to reproduce the analysis on the Asian Sign Languages.
 
 
+J=read.csv("datasets/dataset.csv",header=T,stringsAsFactors =T)
 
-#JJ=read.csv("datasets/fulldataavecasie.csv",header=T)
-J=read.csv("datasets/datafin.csv",header=T,stringsAsFactors =T)
-
-source("fonctions/fctauxini.R")
-source("fonctions/gibbsparam.R")
-source("fonctions/gibbstps.R")
-source("fonctions/gibbstranfter.R")
-source("fonctions/initialisation.R")
-source("fonctions/lkldpruningbis.R")
-source("fonctions/simudata.R")
-source("fonctions/Gibbspartieldata.R")
-source("fonctions/gibbsrho.R")
-source("fonctions/modiftopo.R")
-source("fonctions/SMCforet.R")
-source("fonctions/SMCforet_aux.R")
-source("fonctions/testclades.R")
+source("functions/fctauxini.R")
+source("functions/gibbsparam.R")
+source("functions/gibbstps.R")
+source("functions/gibbstranfter.R")
+source("functions/initialisation.R")
+source("functions/lkldpruningbis.R")
+source("functions/simudata.R")
+source("functions/Gibbspartieldata.R")
+source("functions/gibbsrho.R")
+source("functions/modiftopo.R")
+source("functions/SMCforet.R")
+source("functions/SMCforet_aux.R")
+source("functions/testclades.R")
 
 library("parallel")
 
-
-
-# levels(J$handshape)=c(levels(J$handshape),"L","M","Autre")
-# 
-# J$handshape[J$handshape=="1_b"]="1"
-# J$handshape[J$handshape=="1_nb"]="1"
-# J$handshape[J$handshape=="4_nb"]="4"
-# J$handshape[J$handshape=="5_b"]="5"
-# J$handshape[J$handshape=="5_nb"]="5"
-# J$handshape[J$handshape=="B_b"]="B"
-# J$handshape[J$handshape=="B_nb"]="B"
-# J$handshape[J$handshape=="E_b"]="E"
-# J$handshape[J$handshape=="E_bnb"]="E"
-# J$handshape[J$handshape=="E_nb"]="E"
-# J$handshape[J$handshape=="L_b"]="L"
-# J$handshape[J$handshape=="L_bnb"]="L"
-# J$handshape[J$handshape=="L_eb"]="L"
-# J$handshape[J$handshape=="L_ebnb"]="L"
-# J$handshape[J$handshape=="L_enb"]="L"
-# J$handshape[J$handshape=="L_nb"]="L"
-# J$handshape[J$handshape=="M_enb"]="M"
-# J$handshape[J$handshape=="M_eb"]="M"
-# J$handshape[J$handshape=="S_b"]="S"
-# J$handshape[J$handshape=="V_nb"]="V"
-# 
-# J$handshape[J$handshape=="3_b"]="Autre"
-# J$handshape[J$handshape=="3"]="Autre"
-# J$handshape[J$handshape=="4"]="Autre"
-# J$handshape[J$handshape=="6"]="Autre"
-# J$handshape[J$handshape=="7_enb"]="Autre"
-# J$handshape[J$handshape=="K"]="Autre"
-# J$handshape[J$handshape=="Q"]="Autre"
-# J$handshape[J$handshape=="R"]="Autre"
-# J$handshape[J$handshape=="U"]="Autre"
-# J$handshape[J$handshape=="U_b"]="Autre"
-# J$handshape[J$handshape=="U_nb"]="Autre"
-# J$handshape[J$handshape=="W_nb"]="Autre"
-# J$handshape[J$handshape=="W"]="Autre"
-# J$handshape[J$handshape=="X"]="Autre"
-# 
-# J$handshape[J$handshape=="M"]="Autre"
-# J$handshape[J$handshape=="Y"]="Autre"
-# J$handshape[J$handshape=="I"]="Autre"
-# J$handshape[J$handshape=="H"]="Autre"
-# 
-# J$handshape=droplevels(J$handshape)
-
+# select characters to be included
 qui=c(28,29,6,10)
 #qui=c(7,28,20,10)
 #qui=c(7,28,20,6)
+
+# select languages to be included
 quelleslangues=c("Hongkong","Chinese","Japanese","Taiwan","AllMissing")
 
 nlangues=length(quelleslangues)
@@ -90,8 +44,7 @@ for (i in 1:100){
   }
 }
 
-quelmeanings=k
-
+# list of meanings to include
 quelmeanings=1:100
 
 nch=length(qui)
@@ -216,6 +169,7 @@ convcontraintes <- function(ages){
   return(res)
 }
 
+# List constraints on ages
 Contraintesages=list(list(c(3,4),c(60,85)))
 
 Prior=list(Prirho=Prirho,
@@ -246,8 +200,9 @@ Prior=list(Prirho=Prirho,
            Cladeage=Contraintesages
 )
 
-#Dat=lapply(1:3,function(x){matrix(NA,ncol=15,nrow=100)})
   
+# This will start the SMC sampler. This line will take a long time to execute.
+# The last parameter is the number of cores used on the cluster, which should be adapted to your setup.
 VV2=SMCbruit(Dat,Param,Prior,29)
 
   

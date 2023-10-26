@@ -10,7 +10,7 @@ This folder contains all the core functions needed to run the analysis. Users wi
 
 ## datasets
 
-This folder contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word in a language. The first columns give the meaning and the language; the other columns give all the traits used to encode the word. We also include an excel file containing exactly the same data.
+This folder contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word in a language. The first columns give the meaning and the language; the other columns give all the characters used to encode the word. We also include an excel file containing exactly the same data.
 
 ## videos
 
@@ -20,26 +20,29 @@ Contains examples of the original videos which have been treated to produce the 
 
 Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), and the resulting consensus trees (EBNZ_1_annote.nex, EBNZ_2_annote.nex and Asia_annote.nex). We did not include the full output of the SMC as the files are too large; these files can be reproduced using the code below.
 
-## R scripts
+## Reproducing results from the paper
 
-Five R scripts are available at the root of the folder. They correspond to different analyses:
+R scripts are available at the root of the folder. They correspond to different analyses:
 - AsieLS.R corresponds to the code for the study of the Asian dataset
 - EuropeBNZLS.R corresponds to the code for the study of the European sign languages (with New Zealand sign language).
 - ToutesLS.R includes Asian, European and New Zealand sign languages.
-- GiveATry.R is a more generic script, which can be adapted to other analyses.
-- GiveAPlot.R produces plots for post-processing.
-
-To reproduce the results of the paper, execute the relevant R script.
-
-We recommend using a large cluster as the running time is about a day with 40 cores, for this it is required to check the last lines of the code to change the number of cores used. The results can then be interpreted directly in R (for example for the plots of the parameters) or using additional softwares (requiring to save the tree files corresponding to the phlogenies. We stored our results in the Results folder).
-
-Pay attention in the R files to the parameters used, especially the prior information on ages (written "Contraintesages"), the set of characters used ("qui") in the study, and the language included ("quelleslangues").
 
 
-## Using the code
+To reproduce the results of the paper, execute the relevant R script. We recommend using a large cluster as the running time is about a day with 40 cores; the number of cores can be changed in the last lines of each script.
 
-The whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output, is described in the tutorial file GiveATry.R file. 
-To get the different plots, please refer to the GiveAPlot.R file. It plots all the parameters and produces the .nex files needed for subsequent phylogenetic analyses. The resulting .nex files can be fed to standard phylogenetic software.
+In all cases, you should then execute the GiveAPlot.R script, which post-processes the output and saves the trees in the Nexus format for interpretation in standard phylogenetic software.
+
+Users wishing to make slight modifications to the analyses will presumably be particularly interested in changing the following parameter values:
+- prior information on ages are set in the object "Contraintesages"
+- the set of characters used is given by object "qui"
+- the set of languages included is set by object "quelleslangues"
+
+
+## Using the code on other data sets
+
+The script GiveATry.R gives a template which can be adapted to apply the method to other data. To use this script, re-users will need to fill out certain parameters, which are marked explicitly. This script goes through the whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output. 
+
+Here too, you should then execute the GiveAPlot.R script. It plots all the parameters and produces the .nex files needed for subsequent phylogenetic analyses. The resulting .nex files can be fed to standard phylogenetic software.
 
 ## Thanks
 
