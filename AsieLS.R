@@ -1,3 +1,7 @@
+# Execute this R script to reproduce the analysis on the Asian Sign Languages.
+
+
+
 #JJ=read.csv("datasets/fulldataavecasie.csv",header=T)
 J=read.csv("datasets/datafin.csv",header=T,stringsAsFactors =T)
 
@@ -67,7 +71,6 @@ library("parallel")
 qui=c(28,29,6,10)
 #qui=c(7,28,20,10)
 #qui=c(7,28,20,6)
-#langues européennes
 quelleslangues=c("Hongkong","Chinese","Japanese","Taiwan","AllMissing")
 
 nlangues=length(quelleslangues)

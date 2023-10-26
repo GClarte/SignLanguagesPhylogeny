@@ -1,41 +1,46 @@
 # Phylogenies with Matricial Datasets
 
-This is the implementation of the numerical methods described in the paper "Computational phylogenetics reveal histories of sign languages". To reproduce the results of the paper see below, to run your own analysis, the best idea is to read the GiveATry.R file, that contains enough comments to describe each parameter choice and data information needed.
+This is the implementation of the numerical methods described in the paper "Computational phylogenetics reveal histories of sign languages". Instructions are given below to reproduce all the results from the paper, and to re-use the methodology on other data sets.
 
-The code was working on R 4.2.1, the only library used is "parallel" to run on parallel CPU.
+The code requires R version 4.2.1, with the "parallel" library.
 
 ## functions
 
-This folder contains all the core functions needed to run the analysis. It is not needed to open this file to replicate the experiments on this datasets or make small changes (values of parameters, use of another dataset, etc.), but for more substantial changes of the model it can be needed. In case of need, you can contact Grégoire Clarté.
+This folder contains all the core functions needed to run the analysis. Users wishing to reproduce the results from the paper, or to make small changes (parameters values, different data) will not need to open these files. These files may be of use to researchers wishing to make more substantial changes to the model. In case of need, you can contact Grégoire Clarté.
 
 ## datasets
 
-Contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word, the first columns describe the meanings and language they belong to. We also include an excel file containing exactly the same data.
+This folder contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word in a language. The first columns give the meaning and the language; the other columns give all the traits used to encode the word. We also include an excel file containing exactly the same data.
 
 ## videos
 
-Contains examples of the original videos which have been treated to produce the dataset presented in datasets, the folder also contains a video explaining the encoding process.
+Contains examples of the original videos which have been treated to produce the dataset presented in datasets. The folder also contains a video explaining the encoding process.
 
 ## Results
 
-Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), and the resulting consensus trees (EBNZ_1_annote.nex, EBNZ_2_annote.nex and Asia_annote.nex). We did not include the full output of the SMC as the weight would be too important.
+Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), and the resulting consensus trees (EBNZ_1_annote.nex, EBNZ_2_annote.nex and Asia_annote.nex). We did not include the full output of the SMC as the files are too large; these files can be reproduced using the code below.
 
-## Reproducing the results of the papers
+## R scripts
 
-The R files at the root corresponds to the different experiments carried in the papers:
+Five R scripts are available at the root of the folder. They correspond to different analyses:
 - AsieLS.R corresponds to the code for the study of the Asian dataset
-- EuropeBNZLS.R corresponds to the code for the study of the European and British-New Zealand languages.
+- EuropeBNZLS.R corresponds to the code for the study of the European sign languages (with New Zealand sign language).
+- ToutesLS.R includes Asian, European and New Zealand sign languages.
+- GiveATry.R is a more generic script, which can be adapted to other analyses.
+- GiveAPlot.R produces plots for post-processing.
 
+To reproduce the results of the paper, execute the relevant R script.
 
-To reproduce the results, these R scripts needs to be started. We recommend using a large cluster as the running time is about a day with 40 cores, for this it is required to check the last lines of the code to change the number of cores used. The results can then be interpreted directly in R (for example for the plots of the parameters) or using additional softwares (requiring to save the tree files corresponding to the phlogenies. We stored our results in the Results folder).
+We recommend using a large cluster as the running time is about a day with 40 cores, for this it is required to check the last lines of the code to change the number of cores used. The results can then be interpreted directly in R (for example for the plots of the parameters) or using additional softwares (requiring to save the tree files corresponding to the phlogenies. We stored our results in the Results folder).
 
 Pay attention in the R files to the parameters used, especially the prior information on ages (written "Contraintesages"), the set of characters used ("qui") in the study, and the language included ("quelleslangues").
+
 
 ## Using the code
 
 The whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output, is described in the tutorial file GiveATry.R file. 
-To get the different plots, please refer to the GiveAPlot.R file. It plots all the parameters and produces the .nex files needed for subsequent phylogenetical analysis, plots of the phylogenies will require additional softwares to build the consensus tree, annotate it, and plot the densitrees (we used
+To get the different plots, please refer to the GiveAPlot.R file. It plots all the parameters and produces the .nex files needed for subsequent phylogenetic analyses. The resulting .nex files can be fed to standard phylogenetic software.
 
 ## Thanks
 
-The implementation of the dirichlet distribution comes from the gtools package.
+The implementation of the Dirichlet distribution comes from the gtools package.

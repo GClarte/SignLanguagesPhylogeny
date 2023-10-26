@@ -1,3 +1,5 @@
+# Execute this R script to reproduce the results for the European (+New Zealand) sign languages.
+
 J=read.csv("datasets/dataset.csv",header=T,stringsAsFactors =T, na.strings="")
 
 source("functions/fctauxini.R")
@@ -206,7 +208,10 @@ Prior=list(Prirho=Prirho,
 
 #Dat=lapply(1:3,function(x){matrix(NA,ncol=15,nrow=100)})
   
+# This will start the SMC sampler. This line will take a long time to execute.
+# The last parameter is the number of cores used on the cluster, which should be adapted to your setup.
 VV2=SMCbruit(Dat,Param,Prior,29)
 
   
+# The full results will be saved in RData format in your working directory.
 save.image(paste("EuropeBNZ", date(), ".RData"), version = 2)
