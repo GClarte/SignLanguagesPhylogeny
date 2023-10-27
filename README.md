@@ -23,14 +23,14 @@ Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), a
 ## Reproducing results from the paper
 
 R scripts are available at the root of the folder. They correspond to different analyses:
-- AsieLS.R corresponds to the code for the study of the Asian dataset
-- EuropeBNZLS.R corresponds to the code for the study of the European sign languages (with New Zealand sign language).
-- ToutesLS.R includes Asian, European and New Zealand sign languages. (This last analysis gives trees which should not be reused, as it is based upon the unwarranted assumptions that all sign languages belong to a single tree.)
+- AsianSL.R corresponds to the code for the study of the Asian dataset
+- EuropeanSL.R corresponds to the code for the study of the European sign languages (with New Zealand sign language).
+- AllSL.R includes Asian, European and New Zealand sign languages. (This last analysis gives trees which should not be reused, as it is based upon the unwarranted assumptions that all sign languages belong to a single tree.)
 
 
 To reproduce the results of the paper, execute the relevant R script. We recommend using a large cluster as the running time is about a day with 40 cores; the number of cores can be changed in the last lines of each script.
 
-In all cases, you should then execute the GiveAPlot.R script, which post-processes the output and saves the trees in the Nexus format for interpretation in standard phylogenetic software.
+In all cases, you should then execute the PostProcessing.R script, which post-processes the output and saves the trees in the Nexus format for interpretation in standard phylogenetic software.
 
 Users wishing to make slight modifications to the analyses will presumably be particularly interested in changing the following parameter values:
 - prior information on ages are set in the object "Contraintesages"
@@ -40,9 +40,9 @@ Users wishing to make slight modifications to the analyses will presumably be pa
 
 ## Using the code on other data sets
 
-The script GiveATry.R gives a template which can be adapted to apply the method to other data. To use this script, re-users will need to fill out certain parameters, which are marked explicitly. This script goes through the whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output. 
+The script GenericTemplate.R gives a template which can be adapted to apply the method to other data. To use this script, re-users will need to fill out certain parameters, which are marked explicitly. This script goes through the whole process: formatting the dataset for the inference, setting of the parameters, launching of the SMC, description of the output. 
 
-Here too, you should then execute the GiveAPlot.R script. It plots all the parameters and produces the .nex files needed for subsequent phylogenetic analyses. The resulting .nex files can be fed to standard phylogenetic software.
+Here too, you should then execute the PostProcessing.R script. It plots all the parameters and produces the .nex files needed for subsequent phylogenetic analyses. The resulting .nex files can be fed to standard phylogenetic software.
 
 ## Thanks
 
