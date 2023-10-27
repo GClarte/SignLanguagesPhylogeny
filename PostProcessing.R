@@ -372,8 +372,9 @@ writeNexus(consensus.edges(multiphylo),
 plot(consensus.edges(multiphylo))
 
 #true tree
-writeNexus(tr, paste(name, "_vrai.nex", sep = ""))
-
+if (simu){
+  writeNexus(tr, paste(name, "_vrai.nex", sep = ""))
+}
 
 #In order to get a consensus tree with all interesting value, we used TREEANNOTATOR, the command you can use is :
 #treeannotator -target name_consensus.nex name.nex name_annote.nex
