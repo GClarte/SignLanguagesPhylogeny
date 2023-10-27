@@ -6,7 +6,7 @@ The code requires R version 4.2.1, with the "parallel" library.
 
 ## functions
 
-This folder contains all the core functions needed to run the analysis. Users wishing to reproduce the results from the paper, or to make small changes (parameters values, different data) will not need to open these files. These files may be of use to researchers wishing to make more substantial changes to the model. In case of need, you can contact Grégoire Clarté.
+This folder contains all the core functions needed to run the analysis. Users wishing to reproduce the results from the paper, or to make small changes (parameter values, different data) will not need to open these files. These files may be of use to researchers wishing to make more substantial changes to the model. In case of need, you can contact Grégoire Clarté.
 
 ## datasets
 
@@ -25,7 +25,7 @@ Contains the resulting samples of trees (EBNZ_1.nex, EBNZ_2.nex and Asia.nex), a
 R scripts are available at the root of the folder. They correspond to different analyses:
 - AsieLS.R corresponds to the code for the study of the Asian dataset
 - EuropeBNZLS.R corresponds to the code for the study of the European sign languages (with New Zealand sign language).
-- ToutesLS.R includes Asian, European and New Zealand sign languages.
+- ToutesLS.R includes Asian, European and New Zealand sign languages. (This last analysis gives trees which should not be reused, as it is based upon the unwarranted assumptions that all sign languages belong to a single tree.)
 
 
 To reproduce the results of the paper, execute the relevant R script. We recommend using a large cluster as the running time is about a day with 40 cores; the number of cores can be changed in the last lines of each script.
