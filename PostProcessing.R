@@ -329,7 +329,7 @@ ggsave(
 
 
 #we include a last resampling, if the weights are not all the same
-#the format of the tree we use is not exactly the one from phytools, if you try plotting one of the trees, there is a high chance you get an infinite loop somewhere in phytool code
+# the following code reformats the trees to a standard structure
 npart = length(VV2[[1]])
 pds = sapply(VV2[[1]], function(x) {
   x$weight
@@ -364,6 +364,22 @@ if ("AllMissing" %in% multiphylo[[1]]$tip.label) {
 class(multiphylo) <- "multiPhylo"
 
 writeNexus(multiphylo, paste(name, ".nex", sep = ""))
+
+# if the code above produces an error (seems to depend on the R version),
+# uncomment the lines below and use these instead
+# multiphylo = lapply(JJJ, function(x) {
+#   VV2[[1]][[x]][[1]]
+# })
+# if ("AllMissing" %in% multiphylo[[1]]$tip.label) {
+#   multiphylo = lapply(multiphylo, drop.tip, tip="AllMissing")
+# }
+# class(multiphylo) <- "multiPhylo"
+# 
+# writeNexus(multiphylo, paste(name, ".nex", sep = ""))
+
+
+
+# reload from Nexus file
 multiphylo = read.nexus(paste(name, ".nex", sep = ""))
 #trtemp=consensus(multiphylo,p=.7)
 #writeNexus(consensus.edges(multiphylo,consensus.tree=trtemp),paste(name,"_consensus_p0,7.nex",sep=""))#can take a few seconds
