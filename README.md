@@ -2,7 +2,7 @@
 
 This is the implementation of the numerical methods described in the paper "Computational phylogenetics reveal histories of sign languages". Instructions are given below to reproduce all the results from the paper, and to re-use the methodology on other data sets.
 
-The code requires R version 4.2.1, with the "parallel" library.
+The code uses R version 4.1.2, with the "parallel" library. The code is also working on 4.2.1.
 
 ## functions
 
