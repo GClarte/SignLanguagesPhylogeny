@@ -1,7 +1,8 @@
 # we use ggplot for some nice plots
 # and phytools for the consensus trees
-library(ggplot2)
-library(phytools)
+library("groundhog")
+groundhog.library("ggplot2","2021-06-01")
+groundhog.library("phytools","2021-06-01")
 
 # This script uses the result of the function SMCbruit stored in VV2.
 # It does some post-processing of the output and produces summary plots.
