@@ -12,6 +12,8 @@ This folder contains all the core functions needed to run the analysis. Users wi
 
 This folder contains the datasets used for the experiments presented in the papers. The data consists in a csv file, where each line corresponds to a word in a language. The first columns give the meaning and the language; the other columns give all the characters used to encode the word. We also include an excel file containing exactly the same data.
 
+Details of the coding system can be found in the supplementary materials of the associated paper. Cell values of "UNDEF" or "NA" indicate that the coding field was not applicable to the sign. For example, a sign that is produced in neutral signing space does not receive a code for body part.
+
 ## videos
 
 Contains examples of the original videos which have been treated to produce the dataset presented in datasets. The folder also contains a video explaining the encoding process.
